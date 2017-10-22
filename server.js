@@ -25,7 +25,7 @@ app.use(bodyParser.json());
 app.use(morgan('dev'));
 
 // route to show a random message (GET http://localhost:8080/)
-api.get('/', function (req, res) {
+app.get('/', function (req, res) {
   res.json({ message: 'Welcome to NodeJS secured API with jwt' });
 });
 
