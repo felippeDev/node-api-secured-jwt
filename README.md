@@ -7,7 +7,7 @@ NodeJS secured API with jwt - http://node-api-secured-jwt.herokuapp.com
 - Run npm install;
 - Use routes:
   - POST /api/authenticate: Expect body parameters with 'name' and 'password' and response with a jwt token;
-  - GET /api/signUp: Creates a fakie simple user (Expect a Authorization header with token);
+  - GET /api/signUp: Creates a fakie simple user (name = felippeDev, password = password123);
   - GET /api/users: List all users (Expect a Authorization header with token);
 
   ## Next steps
