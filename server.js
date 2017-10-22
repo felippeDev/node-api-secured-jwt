@@ -29,6 +29,24 @@ api.get('/', function (req, res) {
   res.json({ message: 'Welcome to NodeJS secured API with jwt' });
 });
 
+// test route to create a single user
+apiRoutes.get('/signUp', function (req, res) {
+  // create a sample user
+  var newUser = new User({
+    name: 'felippeDev',
+    password: 'password123',
+    admin: true
+  });
+
+  // save the sample user
+  newUser.save(function (err) {
+    if (err) throw err;
+
+    console.log('User created successfully.');
+    res.json({ success: true, message: 'User created successfully.' });
+  });
+});
+
 // route to authenticate a user (POST http://localhost:8080/api/authenticate)
 apiRoutes.post('/authenticate', (req, res) => {
 
@@ -98,24 +116,6 @@ apiRoutes.use((req, res, next) => {
       message: 'No token provided.'
     });
   }
-});
-
-// test route to create a single user
-apiRoutes.get('/signUp', function (req, res) {
-  // create a sample user
-  var newUser = new User({
-    name: 'felippeDev',
-    password: 'password123',
-    admin: true
-  });
-
-  // save the sample user
-  newUser.save(function (err) {
-    if (err) throw err;
-
-    console.log('User created successfully.');
-    res.json({ success: true, message: 'User created successfully.' });
-  });
 });
 
 // route to return all users (GET http://localhost:8080/api/users)
