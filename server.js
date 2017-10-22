@@ -101,22 +101,22 @@ apiRoutes.get('/', function (req, res) {
 });
 
 // test route to create a single user
-// apiRoutes.get('/signUp', function (req, res) {
-//   // create a sample user
-//   var nick = new User({
-//     name: 'felippeDev',
-//     password: 'password123',
-//     admin: true
-//   });
+apiRoutes.get('/signUp', function (req, res) {
+  // create a sample user
+  var nick = new User({
+    name: 'felippeDev',
+    password: 'password123',
+    admin: true
+  });
 
-//   // save the sample user
-//   nick.save(function (err) {
-//     if (err) throw err;
+  // save the sample user
+  nick.save(function (err) {
+    if (err) throw err;
 
-//     console.log('User created successfully.');
-//     res.json({ success: true, message: 'User created successfully.' });
-//   });
-// });
+    console.log('User created successfully.');
+    res.json({ success: true, message: 'User created successfully.' });
+  });
+});
 
 // route to return all users (GET http://localhost:8080/api/users)
 apiRoutes.get('/users', function (req, res) {
