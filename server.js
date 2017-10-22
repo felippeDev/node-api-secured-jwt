@@ -103,14 +103,14 @@ apiRoutes.get('/', function (req, res) {
 // test route to create a single user
 apiRoutes.get('/signUp', function (req, res) {
   // create a sample user
-  var nick = new User({
+  var newUser = new User({
     name: 'felippeDev',
     password: 'password123',
     admin: true
   });
 
   // save the sample user
-  nick.save(function (err) {
+  newUser.save(function (err) {
     if (err) throw err;
 
     console.log('User created successfully.');
