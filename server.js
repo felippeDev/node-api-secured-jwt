@@ -24,6 +24,11 @@ app.use(bodyParser.json());
 // use morgan to log requests to the console
 app.use(morgan('dev'));
 
+// route to show a random message (GET http://localhost:8080/)
+api.get('/', function (req, res) {
+  res.json({ message: 'Welcome to NodeJS secured API with jwt' });
+});
+
 // route to authenticate a user (POST http://localhost:8080/api/authenticate)
 apiRoutes.post('/authenticate', (req, res) => {
 
@@ -93,11 +98,6 @@ apiRoutes.use((req, res, next) => {
       message: 'No token provided.'
     });
   }
-});
-
-// route to show a random message (GET http://localhost:8080/api/)
-apiRoutes.get('/', function (req, res) {
-  res.json({ message: 'Hello from secured api with jwt' });
 });
 
 // test route to create a single user
